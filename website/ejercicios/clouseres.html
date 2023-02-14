@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+    
+    
+    <script>
+// IIFE Expresion funcional que se inboca inmediatamente
+        // (function(){
+        //     let color = 'green'
+
+        //     function printColor(){
+        //         console.log(color);
+        //     }
+        //     printColor();
+        // })(); // se invoca automaticamente la funcion 
+
+
+
+//Funciones que regresan funciones
+
+
+        function makeColorPrinter(color){
+            let colorMessage = `The color is ${color}`;
+
+            return function(){
+                console.log(colorMessage);
+            };
+        }
+
+        let greenColorPrinter = makeColorPrinter('verde')
+        console.log(greenColorPrinter());
+
+//que nadie tenga acceso a las variables pero va a devolver un objeto medianrte una funcion
+
+        function makeCounter(n){
+            let  count = n;
+
+            return {
+                increase: function(){
+                    count = count + 1;
+                },
+                decrease: function(){
+                    count = count - 1;
+                },
+                getCount: function(){
+                    return count;
+                }
+            };
+        }
+
+        let counter = makeCounter(7);
+
+        console.log("the count is: ", counter.getCount());
+        counter.increase();
+        console.log("the count is: ", counter.getCount());
+        counter.decrease();
+        counter.decrease();
+        counter.decrease();
+        counter.decrease();
+        console.log("the count is: ", counter.getCount());
+    </script>
+</body>
+</html>

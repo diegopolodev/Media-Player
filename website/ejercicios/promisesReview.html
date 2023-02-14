@@ -1,0 +1,33 @@
+<html lang="en">
+    <head charser="UTF-8" >
+        <meta>
+        <title>Promesas en js</title>
+    </head>
+    <body>
+        <script>
+            //Promises: Creacion, Promise lleva como funcion un parametro
+            //Funtion va a recibir dos parametros, resolve: si todo fue exitoso, reject: Si ocurrio algun error
+            let p = new Promise(function(resolve, reject){
+                          let suma = 3+6 ;
+                          if(suma == 8){
+                            resolve ("Correcto!")
+                          }else{
+                            reject("Error!")
+                          }  
+
+            })
+            //Vamos a llamar a la promesa con p, con then que corresponde a la funcion resolve
+            //y le vamos a pasar un parametro que es una funcion
+            p.then(function(mensaje){ //.then se encuentra vinculado con resolve
+                console.log(mensaje);
+            }).catch(function(error){ //catch se encuentra vinculado con reject
+                console.log(error);
+            })
+
+
+
+
+
+        </script>
+    </body>
+</html>
